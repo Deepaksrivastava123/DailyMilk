@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "127523760841",
+    "project_id": "marwarimarts",
+    "storage_bucket": "marwarimarts.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127523760841:android:fce8f38955d5207802fb18",
+        "android_client_info": {
+          "package_name": "com.marwarimarts.marwarimarts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "127523760841-hhnkanff8jbou2c574k1hvb1v2fsso48.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.marwarimarts.marwarimarts",
+            "certificate_hash": "1954ddf1222fe959a92c44631e6e62582dc67b2d"
+          }
+        },
+        {
+          "client_id": "127523760841-94c802kof63l87sgjjl4ecnfv6flm33s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH4iGGpeUGDHpkVgrhlD2Kl5oOOzZLbDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "127523760841-94c802kof63l87sgjjl4ecnfv6flm33s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

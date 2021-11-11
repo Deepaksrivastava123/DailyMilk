@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+        <item
+            android:id="@+id/nav_subscriptions"
+            android:icon="@drawable/ic_menu_calender"
+
+            android:title="@string/my_subscriptions" />
+        <item
+            android:id="@+id/nav_my_wallet"
+            android:icon="@drawable/ic_menu_wallet"
+            android:title="@string/my_wallet" />
+        <item
+            android:id="@+id/nav_my_order"
+            android:icon="@drawable/ic_menu_order"
+            android:title="@string/my_order" />
+
+        <item
+            android:id="@+id/nav_delivery_address"
+            android:icon="@drawable/ic_menu_delivery_location"
+            android:title="@string/delivery_address" />
+        <item
+            android:id="@+id/nav_earn"
+            android:icon="@drawable/ic_menu_refer_earn"
+            android:title="@string/refer_amp_earn" />
+        <item
+            android:id="@+id/nav_Share"
+            android:icon="@drawable/ic_menu_share_with"
+            android:title="@string/share_with_friends" />
+
+</menu>

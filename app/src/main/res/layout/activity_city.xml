@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center|left"
+        android:paddingLeft="5dp"
+        android:text="@string/select_your_city"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="center|left"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:text="This helps us deliver your order from the nearest."
+        android:textSize="12dp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_city"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:padding="10dp">
+
+
+        <TextView
+            android:id="@+id/txt_countinus"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/rounded_button"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/continues"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>
