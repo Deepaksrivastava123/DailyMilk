@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cscodetech.dailymilk">
+    package="com.cscodetech.marwarimarts">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -15,7 +15,7 @@
 
 
     <application
-        android:name=".MyApplication"
+        android:name="com.cscodetech.marwarimarts.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -37,46 +37,46 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".ui.SpinAndwinActivity"
+            android:name="com.cscodetech.marwarimarts.ui.SpinAndwinActivity"
             android:exported="true" />
-        <activity android:name=".ui.NotificationActivity" />
-        <activity android:name=".ui.PrivacyActivity" />
-        <activity android:name=".ui.AboutActivity" />
-        <activity android:name=".ui.SupportActivity" />
-        <activity android:name=".ui.ReferlActivity" />
-        <activity android:name=".ui.OrderDetailsActivity" />
-        <activity android:name=".ui.SubOrderDetailsActivity" />
-        <activity android:name=".ui.MySubcriptionListActivity" />
-        <activity android:name=".ui.MyOrderListActivity" />
-        <activity android:name=".ui.SearchActivity" />
-        <activity android:name=".ui.CollectionProductActivity" />
-        <activity android:name=".ui.WalletActivity" />
-        <activity android:name=".ui.AddressActivity" />
-        <activity android:name=".ui.CartActivity" />
-        <activity android:name=".ui.CreateSubscriptionActivity" />
-        <activity android:name=".ui.ProductListActivity" />
-        <activity android:name=".ui.DiscountActivity" />
-        <activity android:name=".ui.CollectonActivity" />
-        <activity android:name=".ui.FreshStockActivity" />
-        <activity android:name=".ui.CategoryActivity" />
-        <activity android:name=".locationpick.LocationGetActivity" />
-        <activity android:name=".ui.HomeActivity" />
-        <activity android:name=".ui.VerifyPhoneActivity" />
-        <activity android:name=".ui.CityActivity" />
-        <activity android:name=".ui.CompleOrderActivity" />
-        <activity android:name=".ui.CoupunActivity" />
-        <activity android:name=".ui.ForgotActivity" />
-        <activity android:name=".ui.ChanegPasswordActivity" />
-        <activity android:name=".ui.RazerpayActivity" />
-        <activity android:name=".ui.PaypalActivity" />
-        <activity android:name=".ui.StripPaymentActivity" />
-        <activity android:name=".ui.WallateHistryActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.NotificationActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.PrivacyActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.AboutActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.SupportActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.ReferlActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.OrderDetailsActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.SubOrderDetailsActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.MySubcriptionListActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.MyOrderListActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.SearchActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.CollectionProductActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.WalletActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.AddressActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.CartActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.CreateSubscriptionActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.ProductListActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.DiscountActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.CollectonActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.FreshStockActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.CategoryActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.locationpick.LocationGetActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.HomeActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.VerifyPhoneActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.CityActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.CompleOrderActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.CoupunActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.ForgotActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.ChanegPasswordActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.RazerpayActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.PaypalActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.StripPaymentActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.WallateHistryActivity" />
         <activity
-            android:name=".ui.LoginActivity"
+            android:name="com.cscodetech.marwarimarts.ui.LoginActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ui.IntroActivity" />
-        <activity android:name=".ui.FirstActivity">
+        <activity android:name="com.cscodetech.marwarimarts.MainActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.IntroActivity" />
+        <activity android:name="com.cscodetech.marwarimarts.ui.FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
