@@ -1,5 +1,6 @@
 package com.cscodetech.marwarimarts.ui;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -94,6 +95,9 @@ public class CreateSubscriptionActivity extends AppCompatActivity implements Day
     CustPrograssbar custPrograssbar;
     User user;
     List<DeliverylistItem> deliverylist = new ArrayList<>();
+    DeliverylistItem  deliverylist1;
+    DeliverylistItem  deliverylist2;
+    DeliverylistItem  deliverylist3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -450,7 +454,24 @@ public class CreateSubscriptionActivity extends AppCompatActivity implements Day
                 Gson gson = new Gson();
                 Delivery delivery = gson.fromJson(result.toString(), Delivery.class);
                 if (delivery.getResult().equalsIgnoreCase("true")) {
-                    deliverylist = delivery.getDeliverylist();
+                    deliverylist1 = new DeliverylistItem();
+                    deliverylist2 = new DeliverylistItem();
+                    deliverylist3 = new DeliverylistItem();
+                    deliverylist1.setDeDigit("1");
+                    deliverylist1.setStatus("true");
+                    deliverylist1.setTitle("1 Times delivery");
+                    deliverylist1.setId("0");
+                    deliverylist2.setDeDigit("3");
+                    deliverylist2.setStatus("true");
+                    deliverylist2.setTitle("3 Times delivery");
+                    deliverylist2.setId("1");
+                    deliverylist3.setDeDigit("5");
+                    deliverylist3.setStatus("true");
+                    deliverylist3.setTitle("5 Times delivery");
+                    deliverylist3.setId("2");
+                    deliverylist.add(deliverylist1);
+                    deliverylist.add(deliverylist2);
+                    deliverylist.add(deliverylist3);
                 }
             } else if (callNo.equalsIgnoreCase("4")) {
 

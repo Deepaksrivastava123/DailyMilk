@@ -32,6 +32,22 @@ public class DeliverylistItem{
 		return status;
 	}
 
+	public void setDeDigit(String deDigit) {
+		this.deDigit = deDigit;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public boolean select;
 
 	public boolean isSelect() {

@@ -30,6 +30,7 @@ public class ProductChaildAdapter extends RecyclerView.Adapter<ProductChaildAdap
     private List<ProductdataItem> mCatlist;
     SessionManager sessionManager;
     MyDatabase myDatabase;
+    final int[] count = {0};
 
     public interface RecyclerTouchListener {
         public void onClickCategoryItem(String item, int position);
@@ -48,10 +49,20 @@ public class ProductChaildAdapter extends RecyclerView.Adapter<ProductChaildAdap
         TextView txtPrice;
         @BindView(R.id.txt_priced)
         TextView txtPriced;
-        @BindView(R.id.txt_subscription)
-        TextView txtSubscription;
-        @BindView(R.id.txt_addproduct)
-        TextView txtAddproduct;
+//        @BindView(R.id.txt_subscription)
+//        TextView txtSubscription;
+        @BindView(R.id.lvl_addcart)
+        LinearLayout lvlAddcart;
+        @BindView(R.id.lvl_addremove)
+        LinearLayout lvlAddRemove;
+//        @BindView(R.id.txt_addproduct)
+//        TextView txtAddproduct;
+        @BindView(R.id.img_mins)
+        LinearLayout imgMinus;
+        @BindView(R.id.txtcount)
+        TextView txtCount;
+        @BindView(R.id.img_plus)
+        LinearLayout imgPlus;
 
         public MyViewHolder(View view) {
             super(view);
@@ -102,30 +113,57 @@ public class ProductChaildAdapter extends RecyclerView.Adapter<ProductChaildAdap
 
         if (qrts != -1) {
 
-            holder.txtSubscription.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_subscription_white_rounded_selected, 0, 0, 0);
+//            holder.txtSubscription.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_subscription_white_rounded_selected, 0, 0, 0);
 
         } else {
-            holder.txtSubscription.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_subscription_white_rounded, 0, 0, 0);
+//            holder.txtSubscription.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_subscription_white_rounded, 0, 0, 0);
 
         }
         int qrts1 = myDatabase.getCard(item.getProductId());
 
         if (qrts1 != -1) {
-
-            holder.txtAddproduct.setText("");
-            holder.txtAddproduct.setBackgroundResource(R.drawable.ic_selected_item);
+//
+//            holder.txtAddproduct.setText("");
+//            holder.txtAddproduct.setBackgroundResource(R.drawable.ic_selected_item);
 
         } else {
-            holder.txtAddproduct.setText("+");
-            holder.txtAddproduct.setBackgroundResource(R.drawable.rounded_sub);
+//            holder.txtAddproduct.setText("+");
+//            holder.txtAddproduct.setBackgroundResource(R.drawable.rounded_sub);
 
 
         }
 
-        holder.txtAddproduct.setOnClickListener(v -> new ProductDetail().bottonAddtoCard(mContext, item));
-        holder.txtSubscription.setOnClickListener(v -> mContext.startActivity(new Intent(mContext, CreateSubscriptionActivity.class).putExtra("myclass", item)));
-        holder.lvlItemclick.setOnClickListener(v -> new ProductDetail().bottonAddtoCard(mContext, item));
+//        holder.txtAddproduct.setOnClickListener(v -> new ProductDetail().bottonAddtoCard(mContext, item));
+//        holder.txtSubscription.setOnClickListener(v -> mContext.startActivity(new Intent(mContext, CreateSubscriptionActivity.class).putExtra("myclass", item)));
+//        holder.lvlItemclick.setOnClickListener(v -> new ProductDetail().bottonAddtoCard(mContext, item));
+        holder.lvlAddcart.setOnClickListener(v -> {
+            holder.lvlAddcart.setVisibility(View.GONE);
+            holder.lvlAddRemove.setVisibility(View.VISIBLE);
+        });
+
+        holder.imgMinus.setOnClickListener(v -> {
+
+            count[0] = Integer.parseInt(holder.txtCount.getText().toString());
+            count[0] = count[0] - 1;
+            if (count[0] <= 0) {
+                holder.lvlAddRemove.setVisibility(View.GONE);
+                holder.lvlAddcart.setVisibility(View.VISIBLE);
+                holder.txtCount.setText("0");
+
+            } else {
+                holder.txtCount.setVisibility(View.VISIBLE);
+                holder.txtCount.setText("" + count[0]);
+            }
+        });
+
+        holder.imgPlus.setOnClickListener(v -> {
+            count[0] = Integer.parseInt(holder.txtCount.getText().toString());
+            count[0] = count[0] + 1;
+            holder.txtCount.setText("" + count[0]);
+        });
     }
+
+
 
     @Override
     public int getItemCount() {

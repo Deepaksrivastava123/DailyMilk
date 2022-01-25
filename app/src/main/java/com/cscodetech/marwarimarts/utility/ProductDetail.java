@@ -3,6 +3,7 @@ package com.cscodetech.marwarimarts.utility;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,7 +20,9 @@ import com.cscodetech.marwarimarts.ui.CreateSubscriptionActivity;
 import com.cscodetech.marwarimarts.ui.HomeActivity;
 import com.cscodetech.marwarimarts.ui.LoginActivity;
 import com.cscodetech.marwarimarts.ui.ProductListActivity;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.skyhope.showmoretextview.ShowMoreTextView;
 
 import java.util.List;
 
@@ -38,7 +41,7 @@ public class ProductDetail {
 
         Activity activity = (Activity) context;
         BottomSheetDialog mBottomSheetDialog = new BottomSheetDialog(context);
-
+        mBottomSheetDialog.getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
         View rootView = activity.getLayoutInflater().inflate(R.layout.addcard_layout, null);
         mBottomSheetDialog.setContentView(rootView);
 
@@ -46,7 +49,14 @@ public class ProductDetail {
         TextView txtCategory = rootView.findViewById(R.id.txt_category);
         TextView txtDiscount = rootView.findViewById(R.id.txt_discount);
         TextView txtTitle = rootView.findViewById(R.id.txt_title);
-        TextView txtPack = rootView.findViewById(R.id.txt_pack);
+        ShowMoreTextView txtPack = rootView.findViewById(R.id.txt_pack);
+        txtPack.addShowMoreText("more");
+        txtPack.addShowLessText("Less");
+        txtPack.setShowMoreColor(Color.RED); // or other color
+        txtPack.setShowLessTextColor(Color.RED); // or other color
+//        txtPack.setShowingChar(numberOfCharacter);
+        //number of line you want to short
+        txtPack.setShowingLine(4);
         TextView txtPrice = rootView.findViewById(R.id.txt_price);
         TextView txtPriced = rootView.findViewById(R.id.txt_priced);
         TextView txtSubscription = rootView.findViewById(R.id.txt_subscription);

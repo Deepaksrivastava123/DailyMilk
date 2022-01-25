@@ -149,7 +149,7 @@ public class HomeActivity extends AppCompatActivity implements CategoryAdapter.R
         recyclerBanner.setLayoutManager(layoutManager);
 
 
-        GridLayoutManager mLayoutManager1 = new GridLayoutManager(this, 1);
+        GridLayoutManager mLayoutManager1 = new GridLayoutManager(this, 2);
         mLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerCategory.setLayoutManager(mLayoutManager1);
 
@@ -158,11 +158,11 @@ public class HomeActivity extends AppCompatActivity implements CategoryAdapter.R
         recyclerFstock.setLayoutManager(mLayoutManager2);
 
         GridLayoutManager mLayoutManager3 = new GridLayoutManager(this, 1);
-        mLayoutManager3.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mLayoutManager3.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerCollection.setLayoutManager(mLayoutManager3);
 
         GridLayoutManager mLayoutManager4 = new GridLayoutManager(this, 1);
-        mLayoutManager4.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mLayoutManager4.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerDiscount.setLayoutManager(mLayoutManager4);
         getHome();
         txtCttotal.setText("" + new MyDatabase(HomeActivity.this).getCData().size());
@@ -217,13 +217,13 @@ public class HomeActivity extends AppCompatActivity implements CategoryAdapter.R
                     recyclerFstock.setAdapter(new FreashStockAdapter(HomeActivity.this, home.getResultData().getFStock(), this, "fhsk"));
                     recyclerCollection.setAdapter(new CollectionAdapter(HomeActivity.this, home.getResultData().getCollection(), this, "fhsk"));
                     recyclerDiscount.setAdapter(new DiscountAdapter(HomeActivity.this, home.getResultData().getCouponlist(), this, "fhsk"));
-                    recyclerBanner.post(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            recyclerBanner.smoothScrollToPosition(bannerAdapter.getItemCount() - 1);
-                        }
-                    });
+//                    recyclerBanner.post(new Runnable() {
+//
+//                        @Override
+//                        public void run() {
+//                            recyclerBanner.smoothScrollToPosition(bannerAdapter.getItemCount() - 1);
+//                        }
+//                    });
                     sessionManager.setStringData(SessionManager.currency, home.getResultData().getMainData().getCurrency());
                     sessionManager.setStringData(SessionManager.policy, home.getResultData().getMainData().getPolicy());
                     sessionManager.setStringData(SessionManager.about, home.getResultData().getMainData().getAbout());

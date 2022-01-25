@@ -16,7 +16,7 @@
 
         <ImageView
             android:id="@+id/img_banner"
-            android:layout_width="350dp"
+            android:layout_width="260dp"
             android:scaleType="fitCenter"
             android:layout_height="150dp" />
     </androidx.cardview.widget.CardView>

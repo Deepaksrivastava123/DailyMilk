@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/addcard_layout.xml" value="0.18" />
+        <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/custome_additem.xml" value="0.17391304347826086" />
+        <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/item_cartregular.xml" value="0.10326086956521739" />
+        <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/item_cartsubcription.xml" value="0.15" />
+        <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/item_productchaild.xml" value="0.10326086956521739" />
+        <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/item_sub_orderhistry.xml" value="0.10326086956521739" />
         <entry key="..\:/Users/xpmkm/Desktop/update_code_vezilla-server/codecanyon-L2GSbXtH-dairy-products-grocery-daily-milk-delivery-mobile-app-with-subscription-customer-app-delivery/test-vezilla-android-workspace/app/src/main/res/drawable/box1.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/xpmkm/Desktop/update_code_vezilla-server/codecanyon-L2GSbXtH-dairy-products-grocery-daily-milk-delivery-mobile-app-with-subscription-customer-app-delivery/test-vezilla-android-workspace/app/src/main/res/layout/activity_address.xml" value="0.16485507246376813" />
         <entry key="..\:/Users/xpmkm/Desktop/update_code_vezilla-server/codecanyon-L2GSbXtH-dairy-products-grocery-daily-milk-delivery-mobile-app-with-subscription-customer-app-delivery/test-vezilla-android-workspace/app/src/main/res/layout/activity_cart.xml" value="0.264" />
@@ -29,17 +35,25 @@
         <entry key="..\:/Users/xpmkm/Desktop/update_code_vezilla-server/codecanyon-L2GSbXtH-dairy-products-grocery-daily-milk-delivery-mobile-app-with-subscription-customer-app-delivery/test-vezilla-android-workspace/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14375" />
         <entry key="..\:/Users/xpmkm/Desktop/update_code_vezilla-server/codecanyon-L2GSbXtH-dairy-products-grocery-daily-milk-delivery-mobile-app-with-subscription-customer-app-delivery/test-vezilla-android-workspace/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.12314814814814815" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_address.xml" value="0.2" />
+        <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_cart.xml" value="0.13177083333333334" />
+        <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_create_subscription.xml" value="0.264" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_first.xml" value="0.16875" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_home.xml" value="0.2" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_intro.xml" value="0.16875" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_location.xml" value="0.19791666666666666" />
+        <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_my_subcription_list.xml" value="0.13360507246376813" />
+        <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_notification.xml" value="0.2" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_order_details.xml" value="0.4" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_product_list.xml" value="0.19791666666666666" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_strippayment.xml" value="0.1078125" />
+        <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/activity_sub_order_details.xml" value="0.4" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/adapter_banner_item.xml" value="0.178125" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/addcard_layout.xml" value="0.264" />
+        <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/fragment_info1.xml" value="0.13177083333333334" />
+        <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/item_collecton.xml" value="0.19791666666666666" />
+        <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/item_dicount.xml" value="0.17119565217391305" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/item_freshstock.xml" value="0.264" />
-        <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/item_productchaild.xml" value="0.14479166666666668" />
+        <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/item_productchaild.xml" value="0.4" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/item_productmain.xml" value="0.178125" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/layout/layoutcontent.xml" value="0.125" />
         <entry key="..\:/marwari_mart_workspace/marwariMartUserApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.264" />

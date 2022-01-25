@@ -8,6 +8,11 @@
     android:orientation="vertical"
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="250dp"-->
+<!--        android:fillViewport="true">-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -25,6 +30,7 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,9 +38,13 @@
 
         android:padding="20dp">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -100,15 +110,28 @@
                 android:textSize="14dp"
                 android:textStyle="bold" />
 
-            <TextView
+<!--            <TextView-->
+<!--                android:id="@+id/txt_pack"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_alignBottom="@+id/imageView"-->
+<!--                android:maxLines="4"-->
+<!--                android:singleLine="false"-->
+<!--                android:paddingBottom="5dp"-->
+<!--                android:text="1pk"-->
+<!--                android:textSize="14dp" />-->
+
+            <com.skyhope.showmoretextview.ShowMoreTextView
                 android:id="@+id/txt_pack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imageView"
-                android:maxLines="2"
                 android:paddingBottom="5dp"
-                android:text="1pk"
-                android:textSize="14dp" />
+                android:textSize="14dp"
+                android:text="more"
+                />
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -154,7 +177,7 @@
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:paddingLeft="10dp"
-                    android:paddingTop="5dp"
+                    android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="5dp"
                     android:text="SUBSCRIBE"
@@ -177,7 +200,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="45dp"
                 android:background="@drawable/rounded_button"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -234,5 +257,6 @@
             </LinearLayout>
 
         </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </LinearLayout>
