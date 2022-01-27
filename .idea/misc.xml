@@ -3,11 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/activity_category.xml" value="0.1598731884057971" />
+        <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/activity_collection_product.xml" value="0.15942028985507245" />
+        <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/activity_product_list.xml" value="0.1598731884057971" />
         <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/addcard_layout.xml" value="0.18" />
         <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/custome_additem.xml" value="0.17391304347826086" />
         <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/item_cartregular.xml" value="0.10326086956521739" />
         <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/item_cartsubcription.xml" value="0.15" />
         <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/item_productchaild.xml" value="0.10326086956521739" />
+        <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/item_productmain.xml" value="0.1598731884057971" />
         <entry key="..\:/AthTech/marwariMartUserApp/app/src/main/res/layout/item_sub_orderhistry.xml" value="0.10326086956521739" />
         <entry key="..\:/Users/xpmkm/Desktop/update_code_vezilla-server/codecanyon-L2GSbXtH-dairy-products-grocery-daily-milk-delivery-mobile-app-with-subscription-customer-app-delivery/test-vezilla-android-workspace/app/src/main/res/drawable/box1.xml" value="0.21770833333333334" />
         <entry key="..\:/Users/xpmkm/Desktop/update_code_vezilla-server/codecanyon-L2GSbXtH-dairy-products-grocery-daily-milk-delivery-mobile-app-with-subscription-customer-app-delivery/test-vezilla-android-workspace/app/src/main/res/layout/activity_address.xml" value="0.16485507246376813" />

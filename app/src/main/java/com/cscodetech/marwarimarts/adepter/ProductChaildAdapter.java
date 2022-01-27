@@ -19,6 +19,7 @@ import com.cscodetech.marwarimarts.ui.CreateSubscriptionActivity;
 import com.cscodetech.marwarimarts.utility.MyDatabase;
 import com.cscodetech.marwarimarts.utility.ProductDetail;
 import com.cscodetech.marwarimarts.utility.SessionManager;
+import com.cscodetech.marwarimarts.utility.ShowProductDetails;
 
 import java.util.List;
 
@@ -135,10 +136,11 @@ public class ProductChaildAdapter extends RecyclerView.Adapter<ProductChaildAdap
 
 //        holder.txtAddproduct.setOnClickListener(v -> new ProductDetail().bottonAddtoCard(mContext, item));
 //        holder.txtSubscription.setOnClickListener(v -> mContext.startActivity(new Intent(mContext, CreateSubscriptionActivity.class).putExtra("myclass", item)));
-//        holder.lvlItemclick.setOnClickListener(v -> new ProductDetail().bottonAddtoCard(mContext, item));
+        holder.lvlItemclick.setOnClickListener(v -> new ShowProductDetails().bottonAddtoCard(mContext, item));
         holder.lvlAddcart.setOnClickListener(v -> {
             holder.lvlAddcart.setVisibility(View.GONE);
             holder.lvlAddRemove.setVisibility(View.VISIBLE);
+
         });
 
         holder.imgMinus.setOnClickListener(v -> {

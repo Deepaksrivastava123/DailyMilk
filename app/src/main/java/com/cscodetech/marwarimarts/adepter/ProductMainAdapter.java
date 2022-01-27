@@ -19,10 +19,15 @@ import java.util.List;
 public class ProductMainAdapter extends RecyclerView.Adapter<ProductMainAdapter.MyViewHolder> {
     private Context mContext;
     private List<Subcatproduct> mCatlist;
+    private boolean b;
 
 
     public interface RecyclerTouchListener {
         public void onClickCategoryItem(String item, int position);
+    }
+
+    public void ShowCartLayout(boolean b){
+        this.b = b;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
