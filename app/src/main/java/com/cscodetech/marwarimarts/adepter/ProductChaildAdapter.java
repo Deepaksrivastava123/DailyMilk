@@ -2,6 +2,7 @@ package com.cscodetech.marwarimarts.adepter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,8 @@ import com.cscodetech.marwarimarts.utility.ProductDetail;
 import com.cscodetech.marwarimarts.utility.SessionManager;
 import com.cscodetech.marwarimarts.utility.ShowProductDetails;
 
+import org.json.JSONObject;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -29,13 +32,17 @@ import butterknife.ButterKnife;
 public class ProductChaildAdapter extends RecyclerView.Adapter<ProductChaildAdapter.MyViewHolder> {
     private Context mContext;
     private List<ProductdataItem> mCatlist;
+    private OnItemClickListener listener;
     SessionManager sessionManager;
     MyDatabase myDatabase;
     final int[] count = {0};
 
-    public interface RecyclerTouchListener {
-        public void onClickCategoryItem(String item, int position);
-    }
+//    public interface RecyclerTouchListener {
+//        public void onClickCategoryItem(String item, int position);
+//    }
+public interface OnItemClickListener {
+    void onItemClick(int count, int position);
+}
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.lvl_itemclick)
@@ -68,14 +75,13 @@ public class ProductChaildAdapter extends RecyclerView.Adapter<ProductChaildAdap
         public MyViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
-
-
         }
     }
 
-    public ProductChaildAdapter(Context mContext, List<ProductdataItem> mCatlist) {
+    public ProductChaildAdapter(Context mContext, List<ProductdataItem> mCatlist,OnItemClickListener listener) {
         this.mContext = mContext;
         this.mCatlist = mCatlist;
+        this.listener = listener;
         sessionManager = new SessionManager(mContext);
         myDatabase = new MyDatabase(mContext);
     }
@@ -156,12 +162,17 @@ public class ProductChaildAdapter extends RecyclerView.Adapter<ProductChaildAdap
                 holder.txtCount.setVisibility(View.VISIBLE);
                 holder.txtCount.setText("" + count[0]);
             }
+            int qty = Integer.parseInt(holder.txtCount.getText().toString());
+
+            listener.onItemClick(qty,position);
         });
 
         holder.imgPlus.setOnClickListener(v -> {
             count[0] = Integer.parseInt(holder.txtCount.getText().toString());
             count[0] = count[0] + 1;
             holder.txtCount.setText("" + count[0]);
+            int qty = Integer.parseInt(holder.txtCount.getText().toString());
+            listener.onItemClick(qty,position);
         });
     }
 

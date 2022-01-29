@@ -40,7 +40,12 @@ public class CollectionProductActivity extends AppCompatActivity {
         recyclerCollection.setLayoutManager(mLayoutManager1);
         ArrayList<ProductdataItem> productdata=getIntent().getParcelableArrayListExtra("mylist");
 
-        recyclerCollection.setAdapter(new ProductChaildAdapter(this, productdata));
+        recyclerCollection.setAdapter(new ProductChaildAdapter(this, productdata, new ProductChaildAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int count, int position) {
+
+            }
+        }));
     }
 
     @OnClick({R.id.img_back})

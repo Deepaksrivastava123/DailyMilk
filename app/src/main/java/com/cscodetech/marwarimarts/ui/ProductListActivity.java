@@ -1,8 +1,10 @@
 package com.cscodetech.marwarimarts.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,11 +46,14 @@ public class ProductListActivity extends AppCompatActivity implements SubCategor
     TextView txtTitle;
     @BindView(R.id.img_notfound)
     ImageView imgNotfound;
+    @BindView(R.id.linear_layout_cart)
+    LinearLayout linearLayoutCard;
     CustPrograssbar custPrograssbar;
     SessionManager sessionManager;
     User user;
     CatlistItem item;
     ProductMainAdapter productMainAdapter;
+    int qty;
     public static ProductListActivity activity;
 
     public static ProductListActivity getInstance() {
@@ -60,6 +65,7 @@ public class ProductListActivity extends AppCompatActivity implements SubCategor
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_product_list);
         activity = this;
         ButterKnife.bind(this);
@@ -123,8 +129,16 @@ public class ProductListActivity extends AppCompatActivity implements SubCategor
                 SubCategory category = gson.fromJson(result.toString(), SubCategory.class);
                 if (category.getResult().equalsIgnoreCase("true")) {
                     recyclerSubcat.setAdapter(new SubCategoryAdapter(ProductListActivity.this, category.getSubcatproductlist(), this));
-                    productMainAdapter = new ProductMainAdapter(ProductListActivity.this, category.getSubcatproductlist());
+                    productMainAdapter = new ProductMainAdapter(ProductListActivity.this, category.getSubcatproductlist(), new ProductMainAdapter.dataListener() {
+                        @Override
+                        public void addCount(int count) {
+                            qty = count;
+                            showHideAddToCartLayout();
+                            Log.d("prodlisct",String.valueOf(qty));
+                        }
+                    });
                     recyclerProduct.setAdapter(productMainAdapter);
+                    getCountValue();
                 } else {
                     imgNotfound.setVisibility(View.VISIBLE);
                 }
@@ -135,7 +149,28 @@ public class ProductListActivity extends AppCompatActivity implements SubCategor
         }
     }
 
+    private void getCountValue() {
+
+        int count = productMainAdapter.getCount();
+        Log.d("deecou", String.valueOf(count));
+        if (count>0){
+            Log.d("deecou", String.valueOf(count));
+            linearLayoutCard.setVisibility(View.VISIBLE);
+
+        }else {
+           linearLayoutCard.setVisibility(View.GONE);
+        }
+    }
+
     public void notifiyChange() {
         productMainAdapter.notifyDataSetChanged();
     }
+    private void showHideAddToCartLayout(){
+        if (qty>0){
+            linearLayoutCard.setVisibility(View.VISIBLE);
+        }else {
+            linearLayoutCard.setVisibility(View.GONE);
+        }
+    }
+
 }

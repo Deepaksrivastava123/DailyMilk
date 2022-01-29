@@ -107,7 +107,12 @@ public class SearchActivity extends AppCompatActivity implements GetResult.MyLis
                 Gson gson = new Gson();
                 Searchproduct searchproduct = gson.fromJson(result.toString(), Searchproduct.class);
                 if (searchproduct.getResult().equalsIgnoreCase("true")) {
-                    recyclerProduct.setAdapter(new ProductChaildAdapter(this, searchproduct.getProductdata()));
+                    recyclerProduct.setAdapter(new ProductChaildAdapter(this, searchproduct.getProductdata(), new ProductChaildAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int count, int position) {
+
+                        }
+                    }));
                     recyclerProduct.setVisibility(View.VISIBLE);
                     lvlNofound.setVisibility(View.GONE);
                 } else {

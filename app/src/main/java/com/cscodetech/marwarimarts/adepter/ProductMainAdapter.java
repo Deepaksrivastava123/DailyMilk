@@ -1,6 +1,7 @@
 package com.cscodetech.marwarimarts.adepter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,12 @@ public class ProductMainAdapter extends RecyclerView.Adapter<ProductMainAdapter.
     private Context mContext;
     private List<Subcatproduct> mCatlist;
     private boolean b;
+    private dataListener listener;
+    int count;
 
+    public interface dataListener{
+        void addCount(int count);
+    }
 
     public interface RecyclerTouchListener {
         public void onClickCategoryItem(String item, int position);
@@ -44,9 +50,10 @@ public class ProductMainAdapter extends RecyclerView.Adapter<ProductMainAdapter.
         }
     }
 
-    public ProductMainAdapter(Context mContext, List<Subcatproduct> mCatlist) {
+    public ProductMainAdapter(Context mContext, List<Subcatproduct> mCatlist,dataListener listener) {
         this.mContext = mContext;
         this.mCatlist = mCatlist;
+        this.listener = listener;
 
     }
 
@@ -68,7 +75,14 @@ public class ProductMainAdapter extends RecyclerView.Adapter<ProductMainAdapter.
         GridLayoutManager mLayoutManager1 = new GridLayoutManager(mContext, 1);
         mLayoutManager1.setOrientation(LinearLayoutManager.VERTICAL);
         holder.recyclerView.setLayoutManager(mLayoutManager1);
-        holder.recyclerView.setAdapter(new ProductChaildAdapter(mContext, mCatlist.get(position).getProductdata()));
+
+        holder.recyclerView.setAdapter(new ProductChaildAdapter(mContext, mCatlist.get(position).getProductdata(), new ProductChaildAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int count, int position) {
+                Log.d("qty", String.valueOf(count));
+                listener.addCount(count);
+            }
+        }));
         holder.title.setText(""+mCatlist.get(position).getTitle());
 
 
