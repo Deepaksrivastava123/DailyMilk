@@ -1,11 +1,15 @@
 package com.cscodetech.marwarimarts.ui;
 
+import static com.cscodetech.marwarimarts.utility.SessionManager.login;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -18,11 +22,13 @@ import com.cscodetech.marwarimarts.R;
 import com.cscodetech.marwarimarts.adepter.ProductMainAdapter;
 import com.cscodetech.marwarimarts.adepter.SubCategoryAdapter;
 import com.cscodetech.marwarimarts.model.CatlistItem;
+import com.cscodetech.marwarimarts.model.ProductdataItem;
 import com.cscodetech.marwarimarts.model.SubCategory;
 import com.cscodetech.marwarimarts.model.User;
 import com.cscodetech.marwarimarts.retrofit.APIClient;
 import com.cscodetech.marwarimarts.retrofit.GetResult;
 import com.cscodetech.marwarimarts.utility.CustPrograssbar;
+import com.cscodetech.marwarimarts.utility.MyDatabase;
 import com.cscodetech.marwarimarts.utility.SessionManager;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -44,6 +50,12 @@ public class ProductListActivity extends AppCompatActivity implements SubCategor
     RecyclerView recyclerProduct;
     @BindView(R.id.txt_title)
     TextView txtTitle;
+    @BindView(R.id.txt_count)
+    TextView txtCount;
+    @BindView(R.id.txt_total)
+    TextView txtTotal;
+    @BindView(R.id.txt_proced)
+    TextView txtProced;
     @BindView(R.id.img_notfound)
     ImageView imgNotfound;
     @BindView(R.id.linear_layout_cart)
@@ -53,6 +65,7 @@ public class ProductListActivity extends AppCompatActivity implements SubCategor
     User user;
     CatlistItem item;
     ProductMainAdapter productMainAdapter;
+    MyDatabase myDatabase;
     int qty;
     public static ProductListActivity activity;
 
@@ -69,9 +82,11 @@ public class ProductListActivity extends AppCompatActivity implements SubCategor
         setContentView(R.layout.activity_product_list);
         activity = this;
         ButterKnife.bind(this);
+        handleProcedClick();
         custPrograssbar = new CustPrograssbar();
         sessionManager = new SessionManager(ProductListActivity.this);
         user = sessionManager.getUserDetails("");
+        myDatabase = new MyDatabase(ProductListActivity.this);
         item = getIntent().getParcelableExtra("myclass");
         txtTitle.setText("" + item.getTitle());
 
@@ -131,14 +146,13 @@ public class ProductListActivity extends AppCompatActivity implements SubCategor
                     recyclerSubcat.setAdapter(new SubCategoryAdapter(ProductListActivity.this, category.getSubcatproductlist(), this));
                     productMainAdapter = new ProductMainAdapter(ProductListActivity.this, category.getSubcatproductlist(), new ProductMainAdapter.dataListener() {
                         @Override
-                        public void addCount(int count) {
+                        public void addCount(int count, ProductdataItem item) {
                             qty = count;
-                            showHideAddToCartLayout();
+                            showHideAddToCartLayout(item);
                             Log.d("prodlisct",String.valueOf(qty));
                         }
                     });
                     recyclerProduct.setAdapter(productMainAdapter);
-                    getCountValue();
                 } else {
                     imgNotfound.setVisibility(View.VISIBLE);
                 }
@@ -149,28 +163,48 @@ public class ProductListActivity extends AppCompatActivity implements SubCategor
         }
     }
 
-    private void getCountValue() {
-
-        int count = productMainAdapter.getCount();
-        Log.d("deecou", String.valueOf(count));
-        if (count>0){
-            Log.d("deecou", String.valueOf(count));
-            linearLayoutCard.setVisibility(View.VISIBLE);
-
-        }else {
-           linearLayoutCard.setVisibility(View.GONE);
-        }
-    }
-
     public void notifiyChange() {
         productMainAdapter.notifyDataSetChanged();
     }
-    private void showHideAddToCartLayout(){
+
+    private void showHideAddToCartLayout(ProductdataItem item){
         if (qty>0){
+            calculateAndSetPrice(qty,item);
+            item.setProductQty(String.valueOf(qty));
+            myDatabase.insertData(item);
             linearLayoutCard.setVisibility(View.VISIBLE);
         }else {
+            myDatabase.deleteCard();
             linearLayoutCard.setVisibility(View.GONE);
         }
     }
 
+    private void calculateAndSetPrice(int qty, ProductdataItem item) {
+        if (Double.parseDouble(item.getProductDiscount()) != 0) {
+            Double price = Double.parseDouble(item.getProductRegularprice()) * Double.parseDouble(item.getProductDiscount()) / 100;
+            price = Double.parseDouble(item.getProductRegularprice()) - price;
+            txtCount.setText("Item " + qty);
+            txtTotal.setText(sessionManager.getStringData(SessionManager.currency) + qty*price);
+
+        } else {
+            Double price = Double.parseDouble(item.getProductRegularprice());
+            txtCount.setText("Item " + qty);
+            txtTotal.setText(sessionManager.getStringData(SessionManager.currency) + qty*price);
+        }
+    }
+
+  private void handleProcedClick(){
+      txtProced.setOnClickListener(v -> {
+          if (myDatabase.getAllData() != 0) {
+              if (sessionManager.getBooleanData(login)) {
+                  startActivity(new Intent(ProductListActivity.this, CartActivity.class));
+              } else {
+                  startActivity(new Intent(ProductListActivity.this, LoginActivity.class));
+              }
+
+          } else {
+              Toast.makeText(ProductListActivity.this, "Oops ! Your cart is empty !", Toast.LENGTH_LONG).show();
+          }
+      });
+  }
 }

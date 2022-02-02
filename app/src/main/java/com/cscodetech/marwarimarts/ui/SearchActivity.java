@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cscodetech.marwarimarts.R;
 import com.cscodetech.marwarimarts.adepter.ProductChaildAdapter;
+import com.cscodetech.marwarimarts.model.ProductdataItem;
 import com.cscodetech.marwarimarts.model.Searchproduct;
 import com.cscodetech.marwarimarts.model.User;
 import com.cscodetech.marwarimarts.retrofit.APIClient;
@@ -109,7 +110,7 @@ public class SearchActivity extends AppCompatActivity implements GetResult.MyLis
                 if (searchproduct.getResult().equalsIgnoreCase("true")) {
                     recyclerProduct.setAdapter(new ProductChaildAdapter(this, searchproduct.getProductdata(), new ProductChaildAdapter.OnItemClickListener() {
                         @Override
-                        public void onItemClick(int count, int position) {
+                        public void onItemClick(int count, ProductdataItem position) {
 
                         }
                     }));

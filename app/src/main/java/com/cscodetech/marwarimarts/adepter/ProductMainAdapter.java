@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cscodetech.marwarimarts.R;
+import com.cscodetech.marwarimarts.model.ProductdataItem;
 import com.cscodetech.marwarimarts.model.Subcatproduct;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class ProductMainAdapter extends RecyclerView.Adapter<ProductMainAdapter.
     int count;
 
     public interface dataListener{
-        void addCount(int count);
+        void addCount(int count,ProductdataItem item);
     }
 
     public interface RecyclerTouchListener {
@@ -78,9 +79,9 @@ public class ProductMainAdapter extends RecyclerView.Adapter<ProductMainAdapter.
 
         holder.recyclerView.setAdapter(new ProductChaildAdapter(mContext, mCatlist.get(position).getProductdata(), new ProductChaildAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(int count, int position) {
+            public void onItemClick(int count, ProductdataItem item) {
                 Log.d("qty", String.valueOf(count));
-                listener.addCount(count);
+                listener.addCount(count,item);
             }
         }));
         holder.title.setText(""+mCatlist.get(position).getTitle());

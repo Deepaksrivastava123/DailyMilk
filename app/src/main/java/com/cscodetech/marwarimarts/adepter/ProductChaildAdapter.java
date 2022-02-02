@@ -1,8 +1,6 @@
 package com.cscodetech.marwarimarts.adepter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +14,9 @@ import com.bumptech.glide.Glide;
 import com.cscodetech.marwarimarts.R;
 import com.cscodetech.marwarimarts.model.ProductdataItem;
 import com.cscodetech.marwarimarts.retrofit.APIClient;
-import com.cscodetech.marwarimarts.ui.CreateSubscriptionActivity;
 import com.cscodetech.marwarimarts.utility.MyDatabase;
-import com.cscodetech.marwarimarts.utility.ProductDetail;
 import com.cscodetech.marwarimarts.utility.SessionManager;
 import com.cscodetech.marwarimarts.utility.ShowProductDetails;
-
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -41,7 +35,7 @@ public class ProductChaildAdapter extends RecyclerView.Adapter<ProductChaildAdap
 //        public void onClickCategoryItem(String item, int position);
 //    }
 public interface OnItemClickListener {
-    void onItemClick(int count, int position);
+    void onItemClick(int count, ProductdataItem position);
 }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -164,7 +158,7 @@ public interface OnItemClickListener {
             }
             int qty = Integer.parseInt(holder.txtCount.getText().toString());
 
-            listener.onItemClick(qty,position);
+            listener.onItemClick(qty,item);
         });
 
         holder.imgPlus.setOnClickListener(v -> {
@@ -172,7 +166,7 @@ public interface OnItemClickListener {
             count[0] = count[0] + 1;
             holder.txtCount.setText("" + count[0]);
             int qty = Integer.parseInt(holder.txtCount.getText().toString());
-            listener.onItemClick(qty,position);
+            listener.onItemClick(qty,item);
         });
     }
 

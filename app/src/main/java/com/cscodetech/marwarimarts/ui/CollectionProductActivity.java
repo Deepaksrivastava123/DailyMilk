@@ -42,7 +42,7 @@ public class CollectionProductActivity extends AppCompatActivity {
 
         recyclerCollection.setAdapter(new ProductChaildAdapter(this, productdata, new ProductChaildAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(int count, int position) {
+            public void onItemClick(int count, ProductdataItem position) {
 
             }
         }));
