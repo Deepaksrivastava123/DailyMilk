@@ -34,11 +34,12 @@ public class ProductDetail {
     SessionManager sessionManager;
     TextView txtCount;
     TextView txtTotal;
+    ProductdataItem item;
 
     public void bottonAddtoCard(Context context, ProductdataItem item) {
         sessionManager = new SessionManager(context);
         myDatabase = new MyDatabase(context);
-
+        this.item = item;
         Activity activity = (Activity) context;
         BottomSheetDialog mBottomSheetDialog = new BottomSheetDialog(context);
         mBottomSheetDialog.getBehavior().setState(BottomSheetBehavior.STATE_EXPANDED);
@@ -222,8 +223,7 @@ public class ProductDetail {
 
 
             }
-            txtCount.setText("Item " + qty);
-            txtTotal.setText(sessionManager.getStringData(SessionManager.currency) + totle);
+
             if (ProductListActivity.getInstance() != null) {
                 ProductListActivity.getInstance().notifiyChange();
             }
